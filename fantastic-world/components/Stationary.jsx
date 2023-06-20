@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './stationary.css';
+import Navbar from './Navbar';
 
 export default function Stationary() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -67,6 +68,7 @@ export default function Stationary() {
 
   return (
     <div className="stationary-container">
+      <Navbar/>
       <h1 className="stationary-heading">Stationaries</h1>
       <p className='stationary-description'>A paragraph is defined as
        “a group of sentences or a single sentence that forms a unit”.
