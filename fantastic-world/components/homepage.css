@@ -1,0 +1,116 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 5px;
+  background: linear-gradient(45deg, #ff8a00, #e52e71);
+  font-family: 'Helvetica', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.special-offers {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  animation: pulse 2s infinite;
+  margin-top: 10px;
+  animation-delay: 1s; /* Added delay for animation */
+}
+
+.price-container {
+  text-align: center;
+  margin-top: 10px; /* Decreased margin-top value */
+}
+
+.price {
+  font-size: 22px;
+  color: #970f0f;
+  margin-bottom: -12px; /* Decreased margin-bottom value */
+}
+
+.offer-price {
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(20, 187, 20);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3px; /* Decreased margin-bottom value */
+}
+
+.hurry-up {
+  font-size: 24px;
+  margin-top: 5px; /* Decreased margin-top value */
+  color: #f3ae2e;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+   0% {
+    transform: scale(1);
+    color: #fff;
+  }
+  50% {
+    transform: scale(1.1);
+    color: #f3ae2e; /* Added color change */
+  }
+  100% {
+    transform: scale(1);
+    color: #fff;
+  }
+}
+
+.product-title {
+  font-size: 36px;
+  margin-bottom: 7px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.product-details {
+  text-align: center;
+  margin-top: -25px;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+.details-container {
+  margin-left: 20px;
+}
+
+.product-description {
+  font-size: 20px;
+  color: #fff;
+  animation: fade-in 1s ease;
+}
+
+
+.offer-description {
+  font-size: 24px;
+  text-align: center;
+  color: #f5e5e5;
+  animation: fade-in 1s ease;
+}
