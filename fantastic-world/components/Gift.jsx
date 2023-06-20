@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './gift.css';
+import Navbar from './Navbar';
 
 export default function Gift() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -67,6 +68,7 @@ export default function Gift() {
 
   return (
     <div className="gift-container">
+      <Navbar/>
       <h1 className="gift-heading">Gift Items</h1>
       <p className='gift-description'>A paragraph is defined as
        “a group of sentences or a single sentence that forms a unit”.

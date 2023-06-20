@@ -1,5 +1,6 @@
   import React, { useState } from 'react';
 import './jwellary.css';
+import Navbar from './Navbar';
 
 export default function Jewelry() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -67,6 +68,7 @@ export default function Jewelry() {
 
   return (
     <div className="jewelry-container">
+      <Navbar/>
       <h1 className="jewelry-heading">Jewelries</h1>
       <p className='jewelry-description'>A paragraph is defined as
        “a group of sentences or a single sentence that forms a unit”.

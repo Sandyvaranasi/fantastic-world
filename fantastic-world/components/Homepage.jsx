@@ -8,7 +8,7 @@ export default function Homepage() {
         We sell a range of products from stationary to pooja items, general garments, gifts, and many more. Visit the
         store now.
       </p>
-      <h2 className="special-offers">Today's Special Offer !!!</h2> {/* Added field for Today's Special Offer */}
+      <h2 className="special-offers">Today's Special Offer !!!</h2>
       <div className="product-details">
         <h3 className="product-title">Golden worked kada</h3>
         <div className="product-info">
