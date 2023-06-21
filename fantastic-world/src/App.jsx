@@ -11,6 +11,7 @@ import Worship from '../components/Worship';
 import './App.css';
 import Contact from '../components/Contact';
 import Category from '../components/Category';
+import Other from '../components/Other';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/stationary" element={<Stationary />} />
         <Route path="/gift" element={<Gift />} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/other" element={<Other/>} />
         <Route path="/category" element={<Category/>} />
       </Routes>
     </Router>

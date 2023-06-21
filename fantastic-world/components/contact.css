@@ -1,67 +1,83 @@
-.contact-page {
-    background-color: #f2f2f2;
-    
-  }
-  
+.contact-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #d9ff00, rgb(102, 175, 243));
+}
+
+h1 {
+  color: #333;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.contact-card {
+  flex-basis: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card i {
+  color: #007bff;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.contact-card h4 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-card a {
+  color: #555;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+  color: #007bff;
+}
+
+/* Media Query for Mobile */
+@media only screen and (max-width: 767px) {
   .contact-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    height: auto;
   }
-  
-  h1 {
-    color: #333;
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    color: #555;
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-  
-  .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  
+
   .contact-card {
-    flex-basis: 300px;
-    margin: 10px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    flex-basis: 100%;
+    margin: 10px ;
   }
-  
-  .contact-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .contact-container p{
+ margin: 5px;
   }
-  
-  .contact-card i {
-    color: #007bff;
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-card h4 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-card a {
-    color: #555;
-    font-size: 18px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .contact-card a:hover {
-    color: #007bff;
-  }
+}
