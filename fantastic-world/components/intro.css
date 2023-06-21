@@ -3,19 +3,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    background: linear-gradient(45deg, #e24184, #d0df49);
+    height: 76.5vh;
     text-align: center;
+    text-shadow: 3px 3px 6px black;
   }
   
   .intro-container h1 {
     font-size: 48px;
-    color: #333;
+    color: #341db3;
     margin-bottom: 20px;
   }
   
   .intro-container p {
     font-size: 18px;
-    color: #777;
+    color: #292727;
     margin-bottom: 30px;
   }
   
@@ -47,9 +49,7 @@
     margin-bottom: 30px;
   }
   
-  .intro-actions {
-    margin-bottom: 30px;
-  }
+
   
   .btn {
     display: inline-block;
@@ -61,6 +61,7 @@
     font-size: 16px;
     cursor: pointer;
     margin-right: 10px;
+    margin-bottom: 30px;
   }
   
   .contact-link {

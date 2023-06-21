@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import './intro.css';
+import {useNavigate} from 'react-router-dom';
 
 export default function Intro() {
+  const navigate = useNavigate()
   const introAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -21,8 +23,8 @@ export default function Intro() {
       <animated.h1 style={introAnimation}>Welcome to Fantastic World</animated.h1>
       <animated.p style={introAnimation}>Discover exquisite jewelry crafted with passion and precision.</animated.p>
       <div className="intro-actions">
-        <button className="btn">Explore Collections</button>
-        <a className="contact-link" href="/contact">Contact Us</a>
+        <button className="btn" onClick={()=>navigate('/category')}>Explore Collections</button>
+        <a className="contact-link" onClick={()=>navigate('/contact')}>Contact Us</a>
       </div>
       <animated.div className="about-section" style={aboutAnimation}>
         <animated.h2>About Fantastic World</animated.h2>
