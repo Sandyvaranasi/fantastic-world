@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .container {
@@ -8,11 +9,12 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 89.2vh;
   padding: 5px;
-  background: linear-gradient(45deg, #ff8a00, #e52e71);
+  background: linear-gradient(45deg, #c07218, rgb(43, 105, 221));
   font-family: 'Helvetica', Arial, sans-serif;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .special-offers {
@@ -106,7 +108,6 @@ html, body {
   color: #fff;
   animation: fade-in 1s ease;
 }
-
 
 .offer-description {
   font-size: 24px;

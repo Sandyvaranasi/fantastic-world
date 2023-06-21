@@ -9,6 +9,8 @@ import Navbar from '../components/Navbar';
 import Stationary from '../components/Stationary';
 import Worship from '../components/Worship';
 import './App.css';
+import Contact from '../components/Contact';
+import Category from '../components/Category';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/worship" element={<Worship />} />
         <Route path="/stationary" element={<Stationary />} />
         <Route path="/gift" element={<Gift />} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/category" element={<Category/>} />
       </Routes>
     </Router>
   );
