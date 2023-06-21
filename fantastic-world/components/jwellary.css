@@ -1,9 +1,9 @@
 .jewelry-container {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(45deg, #ff8a00, rgb(102, 243, 102));
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 
 .jewelry-heading {
   font-size: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Decreased margin-bottom */
   color: #333;
 }
 
@@ -24,7 +24,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px; /* Decreased margin-bottom */
 }
+
+/* Rest of the CSS remains the same */
+
 
 .jewelry-cards {
   display: flex;
@@ -79,7 +83,7 @@
 
 .jewelry-description {
   color: #333;
-  font-size: 24px;
+  font-size: 15px;
   text-align: center;
   animation: fade-in 1s ease;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -177,4 +181,53 @@
 
 .full-screen-overlay {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Additional styles for PC screens */
+@media only screen and (min-width: 768px) {
+  .jewelry-container {
+    height: 100vh;
+    background: linear-gradient(45deg, #ff8a00, rgb(102, 243, 102));
+    justify-content: center;
+  }
+
+  .jewelry-heading {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .jewelry-slider {
+    justify-content: center;
+  }
+
+  .jewelry-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .jewelry-card {
+    width: 300px;
+    margin: 10px;
+    margin: 20px;
+  }
+
+  .jewelry-image {
+    height: 200px;
+  }
+
+  .jewelry-title {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .jewelry-description {
+    font-size: 24px;
+    margin: 2px;
+    margin-bottom: -3vh;
+  }
+
+  .scroll-arrow {
+    display: none;
+  }
 }

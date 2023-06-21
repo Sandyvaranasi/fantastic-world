@@ -68,7 +68,6 @@ export default function Bangles() {
 
   return (
     <div className="bangle-container">
-      <Navbar/>
       <h1 className="bangle-heading">Bangles</h1>
       <p className='bangle-description'>A paragraph is defined as
        “a group of sentences or a single sentence that forms a unit”.

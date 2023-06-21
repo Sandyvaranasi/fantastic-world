@@ -1,181 +1,235 @@
 .gift-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgb(43, 138, 201), rgb(196, 181, 47));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .gift-heading {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .gift-slider {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .gift-cards {
-    display: flex;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  .gift-card {
-    width: 300px;
-    margin: 0 10px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, rgb(43, 138, 201), rgb(196, 181, 47));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.gift-heading {
+  font-size: 28px;
+  margin-bottom: 10px; /* Decreased margin-bottom */
+  color: #333;
+}
+
+.gift-slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; /* Decreased margin-bottom */
+}
+
+/* Rest of the CSS remains the same */
+
+
+.gift-cards {
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.gift-card {
+  width: 300px;
+  margin: 0 10px;
+  opacity: 0;
+  animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+  0% {
     opacity: 0;
-    animation: fade-in 0.5s ease forwards;
+    transform: translateY(20px);
   }
-  
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .gift-card.active {
+  100% {
     opacity: 1;
+    transform: translateY(0);
   }
-  
-  .gift-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+}
+
+.gift-card.active {
+  opacity: 1;
+}
+
+.gift-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.gift-image:hover {
+  transform: scale(1.05);
+  border-color: #ff9800;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.gift-title {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.gift-description {
+  color: #333;
+  font-size: 15px;
+  text-align: center;
+  animation: fade-in 1s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-arrow {
+  position: relative;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  display: flex; /* Initially hide the scroll arrow */
+  justify-content: center;
+  align-items: center;
+  animation: scale-in 0.3s ease infinite alternate;
+  z-index: 1;
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.9);
   }
-  
-  .gift-image:hover {
-    transform: scale(1.05);
-    border-color: #ff9800;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  100% {
+    transform: scale(1);
   }
-  
-  .gift-title {
-    font-size: 18px;
-    margin-top: 10px;
-    color: #333;
-  }
-  
-  .gift-description {
-    color: #333;
-    font-size: 24px;
-    text-align: center;
-    animation: fade-in 1s ease;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  }
-  
-  .scroll-arrow {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    background-color: #fff;
-    border: 2px solid #333;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: scale-in 0.3s ease infinite alternate;
-  }
-  
-  @keyframes scale-in {
-    0% {
-      transform: scale(0.9);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  .scroll-arrow::before {
-    content: '';
-    display: inline-block;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid #333;
-    transform: rotate(-45deg);
-  }
-  
-  .full-screen-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .full-screen-image {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  
+}
+
+.scroll-arrow::before {
+  content: '';
+  display: inline-block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #333;
+  transform: rotate(-45deg);
+}
+
+.full-screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.full-screen-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.gift-container {
+  background-color: #f1f3f4;
+}
+
+.gift-heading {
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gift-card.active .gift-image {
+  border-color: #ff9800;
+}
+
+.gift-card.active .gift-title {
+  color: #ff9800;
+}
+
+.scroll-arrow {
+  background-color: #fff;
+  border-color: #333;
+}
+
+.scroll-arrow:hover {
+  background-color: #333;
+}
+
+.scroll-arrow:hover::before {
+  border-left-color: #fff;
+}
+
+.full-screen-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Additional styles for PC screens */
+@media only screen and (min-width: 768px) {
   .gift-container {
-    background-color: #f1f3f4;
+    height: 100vh;
+    background: linear-gradient(45deg, rgb(43, 138, 201), rgb(196, 181, 47));
+    justify-content: center;
   }
-  
+
   .gift-heading {
-    font-size: 28px;
-    margin-bottom: 5px;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 32px;
+    margin-bottom: 30px;
   }
-  
-  .gift-card.active .gift-image {
-    border-color: #ff9800;
+
+  .gift-slider {
+    justify-content: center;
   }
-  
-  .gift-card.active .gift-title {
-    color: #ff9800;
+
+  .gift-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
   }
-  
+
+  .gift-card {
+    width: 250px;
+    margin: 10px;
+    margin: 20px;
+  }
+
+  .gift-image {
+    height: 200px;
+  }
+
+  .gift-title {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .gift-description {
+    font-size: 24px;
+    margin: 2px;
+    margin-bottom: -3vh;
+  }
+
   .scroll-arrow {
-    background-color: #fff;
-    border-color: #333;
+    display: flex; /* Display the scroll arrow on PC screens */
+    right: 10px; /* Customize the positioning as needed */
   }
-  
-  .scroll-arrow:hover {
-    background-color: #333;
-  }
-  
-  .scroll-arrow:hover::before {
-    border-left-color: #fff;
-  }
-  
-  .full-screen-overlay {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
+}

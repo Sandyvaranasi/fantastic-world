@@ -68,7 +68,6 @@ export default function Worship() {
 
   return (
     <div className="worship-container">
-      <Navbar/>
       <h1 className="worship-heading">Pooja Samagri</h1>
       <p className='worship-description'>A paragraph is defined as
        “a group of sentences or a single sentence that forms a unit”.
