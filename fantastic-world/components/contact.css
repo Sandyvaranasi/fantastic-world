@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, #d9ff00, rgb(102, 175, 243));
+  background-color: #dbdee2;
 }
 
 h1 {
@@ -64,6 +64,11 @@ p {
 
 .contact-card a:hover {
   color: #007bff;
+}
+
+.emailIcon {
+  height: 17vh;
+  width: 10vw;
 }
 
 /* Media Query for Mobile */

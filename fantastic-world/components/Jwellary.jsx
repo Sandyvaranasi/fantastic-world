@@ -69,11 +69,7 @@ export default function Jewelry() {
   return (
     <div className="jewelry-container">
       <h1 className="jewelry-heading">Jewelries</h1>
-      <p className='jewelry-description'>A paragraph is defined as
-       “a group of sentences or a single sentence that forms a unit”.
-        Length and appearance do not determine whether a section in a paper is a paragraph.
-         For instance, in some styles of writing, particularly journalistic styles,
-       a paragraph can be just one sentence long.</p>
+      <p className='jewelry-description'>A paragraph is defined as "a group of sentences or a single sentence that forms a unit". Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long.</p>
       <div className="jewelry-slider">
         <div className="jewelry-cards">
           {visibleItems.map((item) => (
@@ -88,11 +84,11 @@ export default function Jewelry() {
             </div>
           ))}
         </div>
-        <div className="scroll-arrow" onClick={handleNext}></div>
       </div>
+      <button className="next-button" onClick={handleNext}>Next</button>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
-          <img src={fullScreenImage} alt="Full-Screen Jewelry" className="full-screen-image" />
+          <img src={fullScreenImage} alt="Full-Screen jewelry" className="full-screen-image" />
         </div>
       )}
     </div>

@@ -3,11 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #f7fdd6, #5a4d51);
   height: 100vh;
   text-align: center;
   text-shadow: 3px 3px 6px black;
   padding: 40px;
+  background-color: #dbdee2;
 }
 
 .intro-container h1 {

@@ -8,18 +8,15 @@ function Contact() {
         <p>Feel free to get in touch with us using the contact information below.</p>
         <div className="contact-info">
           <div className="contact-card">
-            <i className="fas fa-envelope fa-3x"></i>
-            <h4>Email</h4>
-            <a href="mailto:youremail@example.com">youremail@example.com</a>
+            <img  className='emailIcon' src="https://www.freepnglogos.com/uploads/email-png/email-logo-png-master-internet-marketing-with-loretta-1.png" alt="email icon" />
+              <a href="mailto:youremail@example.com">youremail@example.com</a>
           </div>
           <div className="contact-card">
-            <i className="fas fa-phone fa-3x"></i>
-            <h4>Phone</h4>
+            <img className='emailIcon' src="https://www.freepnglogos.com/uploads/logo-telepon-png/cara-mendapatkan-nomor-telpon-gratis-untuk-verifikasi-21.png" alt="phone icon" />
             <a href="tel:+123456789">+1 234 567 89</a>
           </div>
           <div className="contact-card">
-            <i className="fas fa-map-marker-alt fa-3x"></i>
-            <h4>Address</h4>
+            <img className='emailIcon' src="https://www.freepnglogos.com/uploads/lokasi-logo-png/lokasi-logo-google-ubicaci-imagen-gratis-28.png" alt="address icon" />
             <p>123 Street, City, Country</p>
           </div>
         </div>

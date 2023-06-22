@@ -69,11 +69,7 @@ export default function Bangles() {
   return (
     <div className="bangle-container">
       <h1 className="bangle-heading">Bangles</h1>
-      <p className='bangle-description'>A paragraph is defined as
-       “a group of sentences or a single sentence that forms a unit”.
-        Length and appearance do not determine whether a section in a paper is a paragraph.
-         For instance, in some styles of writing, particularly journalistic styles,
-       a paragraph can be just one sentence long.</p>
+      <p className='bangle-description'>A paragraph is defined as "a group of sentences or a single sentence that forms a unit". Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long.</p>
       <div className="bangle-slider">
         <div className="bangle-cards">
           {visibleItems.map((item) => (
@@ -88,8 +84,8 @@ export default function Bangles() {
             </div>
           ))}
         </div>
-        <div className="scroll-arrow" onClick={handleNext}></div>
       </div>
+      <button className="next-button" onClick={handleNext}>Next</button>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen bangle" className="full-screen-image" />

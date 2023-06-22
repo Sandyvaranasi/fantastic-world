@@ -88,8 +88,8 @@ export default function Stationary() {
             </div>
           ))}
         </div>
-        <div className="scroll-arrow" onClick={handleNext}></div>
       </div>
+      <button className="next-button" onClick={handleNext}>Next</button>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen stationary" className="full-screen-image" />
