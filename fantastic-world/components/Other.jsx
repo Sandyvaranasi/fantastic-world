@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './other.css';
-import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Other() {
   const [currentPage, setCurrentPage] = useState(0);
   const [fullScreenImage, setFullScreenImage] = useState(null);
   const itemsPerPage = 3;
+  const navigate = useNavigate();
 
   const otherData = [
     {
@@ -88,7 +89,10 @@ export default function Other() {
             </div>
           ))}
         </div>
-        <button className="next-button" onClick={handleNext}>Next</button>
+        <div>
+      <button className="next-button" onClick={handleNext}>Next</button>
+      <button className="next-button" onClick={()=>navigate('/category')}>Categories</button>
+      </div>
       </div>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>

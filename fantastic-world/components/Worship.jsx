@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './worship.css';
-import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Worship() {
   const [currentPage, setCurrentPage] = useState(0);
   const [fullScreenImage, setFullScreenImage] = useState(null);
   const itemsPerPage = 3;
+  const navigate = useNavigate();
 
   const worshipData = [
     {
@@ -89,7 +90,10 @@ export default function Worship() {
           ))}
         </div>
       </div>
+      <div>
       <button className="next-button" onClick={handleNext}>Next</button>
+      <button className="next-button" onClick={()=>navigate('/category')}>Categories</button>
+      </div>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen worship" className="full-screen-image" />

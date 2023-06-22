@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './bangle.css';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Bangles() {
   const [currentPage, setCurrentPage] = useState(0);
   const [fullScreenImage, setFullScreenImage] = useState(null);
   const itemsPerPage = 3;
+  const navigate = useNavigate();
 
   const bangleData = [
     {
@@ -85,7 +87,10 @@ export default function Bangles() {
           ))}
         </div>
       </div>
+      <div>
       <button className="next-button" onClick={handleNext}>Next</button>
+      <button className="next-button" onClick={()=>navigate('/category')}>Categories</button>
+      </div>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen bangle" className="full-screen-image" />

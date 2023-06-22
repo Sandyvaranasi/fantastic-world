@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './stationary.css';
-import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Stationary() {
   const [currentPage, setCurrentPage] = useState(0);
   const [fullScreenImage, setFullScreenImage] = useState(null);
   const itemsPerPage = 3;
+  const navigate = useNavigate();
 
   const stationaryData = [
     {
@@ -89,7 +90,10 @@ export default function Stationary() {
           ))}
         </div>
       </div>
+      <div>
       <button className="next-button" onClick={handleNext}>Next</button>
+      <button className="next-button" onClick={()=>navigate('/category')}>Categories</button>
+      </div>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen stationary" className="full-screen-image" />
