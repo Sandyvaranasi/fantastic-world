@@ -88,7 +88,7 @@ export default function Other() {
             </div>
           ))}
         </div>
-        <div className="scroll-arrow" onClick={handleNext}></div>
+        <button className="next-button" onClick={handleNext}>Next</button>
       </div>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>

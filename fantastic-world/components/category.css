@@ -6,11 +6,13 @@
   justify-items: center;
   align-items: center;
   padding: 20px;
+  background-color: #dbdee2;
 }
 
 .category-card {
   display: flex;
   flex-direction: column;
+  width:15vw;
   justify-content: center;
   align-items: center;
   background-color: #f9f9f9;
@@ -43,5 +45,9 @@
 @media (max-width: 768px) {
   .category-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .category-card{
+    width : auto;
   }
 }

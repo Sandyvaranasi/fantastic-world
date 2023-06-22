@@ -88,8 +88,8 @@ export default function Worship() {
             </div>
           ))}
         </div>
-        <div className="scroll-arrow" onClick={handleNext}></div>
       </div>
+      <button className="next-button" onClick={handleNext}>Next</button>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen worship" className="full-screen-image" />

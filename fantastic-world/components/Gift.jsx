@@ -69,11 +69,7 @@ export default function Gift() {
   return (
     <div className="gift-container">
       <h1 className="gift-heading">Gift Items</h1>
-      <p className='gift-description'>A paragraph is defined as
-       “a group of sentences or a single sentence that forms a unit”.
-        Length and appearance do not determine whether a section in a paper is a paragraph.
-         For instance, in some styles of writing, particularly journalistic styles,
-       a paragraph can be just one sentence long.</p>
+      <p className='gift-description'>A paragraph is defined as "a group of sentences or a single sentence that forms a unit". Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long.</p>
       <div className="gift-slider">
         <div className="gift-cards">
           {visibleItems.map((item) => (
@@ -88,8 +84,8 @@ export default function Gift() {
             </div>
           ))}
         </div>
-        <div className="scroll-arrow" onClick={handleNext}></div>
       </div>
+      <button className="next-button" onClick={handleNext}>Next</button>
       {fullScreenImage && (
         <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
           <img src={fullScreenImage} alt="Full-Screen gift" className="full-screen-image" />
