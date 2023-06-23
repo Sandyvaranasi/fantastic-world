@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Bangles from '../components/Bangles';
 import Gift from '../components/Gift';
-import Homepage from '../components/Homepage';
 import Intro from '../components/Intro';
 import Jwellary from '../components/Jwellary';
 import Navbar from '../components/Navbar';
@@ -19,7 +18,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Intro />} />
-        <Route path="/offer" element={<Homepage />} />
         <Route path="/jwellary" element={<Jwellary />} />
         <Route path="/bangle" element={<Bangles />} />
         <Route path="/worship" element={<Worship />} />

@@ -5,20 +5,6 @@ html, body {
   height: 100%;
 }
 
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Changed height to min-height */
-  padding: 5px;
-  background-color: #dbdee2;
-  font-family: 'Helvetica', Arial, sans-serif;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
 .special-offers {
   font-size: 28px;
   font-weight: bold;
@@ -50,14 +36,14 @@ html, body {
 .hurry-up {
   font-size: 24px;
   margin-top: 5px; /* Decreased margin-top value */
-  color: #f3ae2e;
+  color: #f32019;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes pulse {
   0% {
     transform: scale(1);
-    color: #876fad;
+    color: #7027e7;
   }
   50% {
     transform: scale(1.1);
@@ -65,7 +51,7 @@ html, body {
   }
   100% {
     transform: scale(1);
-    color: #876fad;
+    color: #7027e7;
   }
 }
 

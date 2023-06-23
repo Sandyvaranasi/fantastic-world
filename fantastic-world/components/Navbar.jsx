@@ -21,9 +21,6 @@ export default function Navbar() {
           <Link to="/" className="navbar-link">About</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/offer" className="navbar-link">Offer</Link>
-        </li>
-        <li className="navbar-item">
           <Link to="/jwellary" className="navbar-link">Jewellery</Link>
         </li>
         <li className="navbar-item">
