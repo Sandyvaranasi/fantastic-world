@@ -4,11 +4,6 @@ import './category.css';
 
 const categories = [
   {
-    title: 'Offer',
-    image: 'https://img.freepik.com/free-vector/special-offer-modern-sale-banner-template_1017-20667.jpg?size=626&ext=jpg&ga=GA1.2.1011469892.1680872086&semt=ais',
-    path: '/offer',
-  },
-  {
     title: 'Jewellery',
     image: 'https://img.freepik.com/free-photo/gold-necklace-with-word-love-it_1340-42879.jpg?w=360&t=st=1687339644~exp=1687340244~hmac=bbcd5dd8021735ed04cf974b0033012c78dad2ee68c486ef2a5c1aca05ce53ae',
     path: '/jwellary',
