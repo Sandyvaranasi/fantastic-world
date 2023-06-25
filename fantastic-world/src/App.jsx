@@ -11,6 +11,12 @@ import './App.css';
 import Contact from '../components/Contact';
 import Category from '../components/Category';
 import Other from '../components/Other';
+import axios from 'axios';
+
+export const api = axios.create({
+  baseURL : 'http://localhost:3000/api'
+  // baseURL: import.meta.env.VITE_BASE_URL,
+});
 
 function App() {
   return (

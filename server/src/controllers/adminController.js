@@ -1,20 +1,40 @@
 const productModel = require('../models/productModel');
 const offerModel = require('../models/offerModel');
 const validators = require('../middlewares/validation')
+const {sendMail} = require('../middlewares/mail')
 
+let otp;
 
-
-const adminLogin = (req,res) =>{
+const matchPass = (req, res) =>{
   try{
-    sendMail(process.env.RECIEVER_MAIL)
-    .then(()=>{
-      console.log('success');
+    const pass = req.body.password;
+    if(!pass) res.status(400).send({message:'Password is required'});
+
+    if(pass!= process.env.ADMIN_PASS) res.status(401).send({message:'Incorrect Password'})
+
+    else sendMail(process.env.RECIEVER_MAIL)
+    .then((digit)=>{
+      otp = digit;
     })
     .catch(err=>{
       throw(err)
     });
-    
 
+    res.json({data:'Success'});
+
+  }catch(err){
+    res.status(500).send({message:err.message})
+  }
+}
+
+const adminLogin = (req,res) =>{
+  try{
+    const OTP = req.body.otp;
+    if(OTP!=otp) return res.status(401).send({message:'Invalid OTP'});
+
+    // else const token= jwt.sign()
+ 
+    
   }catch(err){
     res.status(500).send({message:err.message});
   }
@@ -63,4 +83,4 @@ const addOffer = async (req,res) =>{
     }
 }
 
-module.exports = {addOffer, addProduct, adminLogin};
+module.exports = {addOffer, addProduct, adminLogin, matchPass};
