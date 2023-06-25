@@ -10,7 +10,8 @@ const productSchema = new mongoose.Schema({
         required : true
      },
      image : {
-        type : String,
+        type : Buffer,
+        contentType: String,
         required : true
      }
 },{timestamps:true});

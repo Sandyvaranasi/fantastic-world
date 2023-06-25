@@ -6,15 +6,17 @@ const app = express();
 
 require("dotenv").config();
 
-app.use(cors())
+app.use(cors());
 
 const route = require('./routes/route')
 
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true})
-.then(()=>console.log('DB connected'))
-.catch(error=>console.log(error.message));
+mongoose
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('DB connected'))
+  .catch(error => console.log(error.message));
+
 
 app.use('/api',route);
 
