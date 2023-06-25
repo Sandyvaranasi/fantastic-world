@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import './intro.css';
 import './homepage.css';
 import {useNavigate} from 'react-router-dom';
+import { api } from '../src/App';
 
 export default function Intro() {
   const navigate = useNavigate()
+  const [offerDetails, setOfferDetails] = useState({});
 
-  const offerDetails = {
-    title: "Golden worked kada" ,
-    image: "https://5.imimg.com/data5/AU/MT/GJ/SELLER-84633020/ladies-gold-kada-500x500.jpg",
-    price: "₹150/pair",
-    offer: "₹100/pair"
-  }
+  useEffect(()=>{
+    api.get('/offer')
+    .then(res=> {
+      setOfferDetails(res.data)
+    })
+    .catch(error=>alert(error.response.data.message));
+  },[])
+
 
   const introAnimation = useSpring({
     opacity: 1,
@@ -26,6 +30,10 @@ export default function Intro() {
     delay: 500,
     config: { duration: 1000 },
   });
+
+  const base64String = btoa(
+    String.fromCharCode(...new Uint8Array(offerDetails.image.data))
+  );
 
   return (
     <div className="intro-container">
@@ -41,7 +49,7 @@ export default function Intro() {
         <animated.div className="product-info">
           <animated.img
             className="product-image"
-            src= {offerDetails.image}
+            src= {`data:image/png;base64,${base64String}`}
             alt="Kada image"
           />
           <animated.div className="details-container">

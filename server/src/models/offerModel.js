@@ -10,8 +10,9 @@ const offerSchema = new mongoose.Schema({
         required : true
      },
      image : {
-        type : String,
-        required : true
+      type : Buffer,
+      contentType: String,
+      required : true
      },
      offer : {
         type : String,

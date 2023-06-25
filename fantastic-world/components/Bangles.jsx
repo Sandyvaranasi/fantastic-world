@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './bangle.css';
-import { useNavigate } from 'react-router-dom';
-import { api } from '../src/App';
+import React, { useEffect, useState } from "react";
+import "./bangle.css";
+import { useNavigate } from "react-router-dom";
+import { api } from "../src/App";
 
 export default function Bangles() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -10,15 +10,20 @@ export default function Bangles() {
   const itemsPerPage = 3;
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    api.get('/product/bangle',)
-    .then(res=> setBangleData(res.data.data))
-    .catch(err=>alert(err.response.data.message))
-  },[]);
+  useEffect(() => {
+    api
+      .get("/product/bangle")
+      .then((res) => setBangleData(res.data.data))
+      .catch((err) => alert(err.response.data.message));
+  }, []);
 
   const handleNext = (e) => {
     e.preventDefault();
-    setCurrentPage((prevPage) => (prevPage === Math.ceil(bangleData.length / itemsPerPage) - 1 ? 0 : prevPage + 1));
+    setCurrentPage((prevPage) =>
+      prevPage === Math.ceil(bangleData.length / itemsPerPage) - 1
+        ? 0
+        : prevPage + 1
+    );
   };
 
   const openFullScreenImage = (imageUrl) => {
@@ -30,32 +35,56 @@ export default function Bangles() {
   return (
     <div className="bangle-container">
       <h1 className="bangle-heading">Bangles</h1>
-      <p className='bangle-description'>A paragraph is defined as "a group of sentences or a single sentence that forms a unit". Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long.</p>
+      <p className="bangle-description">
+        A paragraph is defined as "a group of sentences or a single sentence
+        that forms a unit". Length and appearance do not determine whether a
+        section in a paper is a paragraph. For instance, in some styles of
+        writing, particularly journalistic styles, a paragraph can be just one
+        sentence long.
+      </p>
       <div className="bangle-slider">
         <div className="bangle-cards">
-          {visibleItems.map((item) => (
-            <div className="bangle-card" key={item.id}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="bangle-image"
-                onClick={() => openFullScreenImage(item.image)}
-              />
-              <h2 className="bangle-title">{item.title}</h2>
-            </div>
-          ))}
+          {visibleItems.map((item) => {
+            const base64String = btoa(
+              String.fromCharCode(...new Uint8Array(item.image.data))
+            );
+
+            return (
+              <div className="bangle-card" key={item.id}>
+                <img
+                  src={`data:image/png;base64, ${base64String}`}
+                  alt={item.title}
+                  className="bangle-image"
+                  onClick={() =>
+                    openFullScreenImage(`data:image/png;base64,${base64String}`)
+                  }
+                />
+                <h2 className="bangle-title">{item.title}</h2>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div>
-      <button className="next-button" onClick={handleNext}>Next</button>
-      <button className="next-button" onClick={()=>navigate('/category')}>Categories</button>
+        <button className="next-button" onClick={handleNext}>
+          Next
+        </button>
+        <button className="next-button" onClick={() => navigate("/category")}>
+          Categories
+        </button>
       </div>
       {fullScreenImage && (
-        <div className="full-screen-overlay" onClick={() => setFullScreenImage(null)}>
-          <img src={fullScreenImage} alt="Full-Screen bangle" className="full-screen-image" />
+        <div
+          className="full-screen-overlay"
+          onClick={() => setFullScreenImage(null)}
+        >
+          <img
+            src={fullScreenImage}
+            alt="Full-Screen bangle"
+            className="full-screen-image"
+          />
         </div>
       )}
     </div>
   );
 }
-

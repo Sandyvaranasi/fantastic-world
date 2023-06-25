@@ -17,7 +17,7 @@ const getOffer = async (req,res) =>{
     try{
         const offer = await offerModel.findOne();
 
-        res.json({data:offer});
+        res.json(offer);
 
     }catch(err){
         res.status(500).send({message:err.message})

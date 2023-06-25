@@ -1,7 +1,8 @@
 const productModel = require('../models/productModel');
 const offerModel = require('../models/offerModel');
 const validators = require('../middlewares/validation')
-const {sendMail} = require('../middlewares/mail')
+const {sendMail} = require('../middlewares/mail');
+const fs = require('fs');
 
 let otp;
 
@@ -40,28 +41,37 @@ const adminLogin = (req,res) =>{
   }
 }
 
-const addProduct = async (req,res) =>{
-    try{
-        const data = req.body;
+const addProduct = async (req, res) => {
+  try {
+    const data = req.body;
 
-        const { error, value } = validators.productValidationSchema.validate(data, {
-            abortEarly: false,
-          });
-      
-          if (error) {
-            return res.status(400).send({ message: error.details[0].message });
-          };
+    const { error, value } = validators.productValidationSchema.validate(data, {
+      abortEarly: false,
+    });
 
-          data.category = req.params.category
-
-          const product = await productModel.create(data);
-          res.status(201).json({data:product})
-
-
-    }catch(err){
-        res.status(500).send({message:err.message});
+    if (error) {
+      return res.status(400).send({ message: error.details[0].message });
     }
-}
+
+    const product = new productModel({
+      title: data.title,
+      category: req.params.category,
+      image:   await fs.promises.readFile('./uploads/' + req.file.filename)
+    });
+
+    product
+      .save()
+      .then(result => {
+        return res.status(201).json({ data: "Successfully uploaded" });
+      })
+      .catch(error => {
+        return res.status(400).send({ message: error.message });
+      });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
 
 const addOffer = async (req,res) =>{
     try{
@@ -75,8 +85,14 @@ const addOffer = async (req,res) =>{
             return res.status(400).send({ message: error.details[0].message });
           };
 
-          const offer = await offerModel.findOneAndReplace(data);
-          res.status(201).json({data:offer})
+          data.image =  await fs.promises.readFile('./uploads/' + req.file.filename);
+
+          
+
+          const offer =  await offerModel.findOneAndUpdate({},data,{new:true},{upsert:true});
+
+          return res.status(201).json({data:offer});
+
 
     }catch(err){
         res.status(500).send({message:err.message});
