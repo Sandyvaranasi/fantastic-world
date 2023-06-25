@@ -1,61 +1,21 @@
-  import React, { useState } from 'react';
+  import React, { useEffect, useState } from 'react';
 import './jwellary.css';
 import { useNavigate } from 'react-router-dom';
+import { api } from '../src/App';
 
 export default function Jewelry() {
   const [currentPage, setCurrentPage] = useState(0);
   const [fullScreenImage, setFullScreenImage] = useState(null);
+  const [jewelryData, setJewelryData] = useState([]);
   const itemsPerPage = 3;
   const navigate = useNavigate();
 
-  const jewelryData = [
-    {
-      id: 1,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVsOaVAOen2d_Stl8Tv7p7ex787tZYSrT64A&usqp=CAU',
-      title: 'Jewelry Title 1',
-    },
-    {
-      id: 2,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu8pPahdwqF98-dS3VGUfIWuxIhuNuP7dlgg&usqp=CAU',
-      title: 'Jewelry Title 2',
-    },
-    {
-      id: 3,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1zst6BIkDlfq2bv9BOQwKowAImldvd4GI5w&usqp=CAU',
-      title: 'Jewelry Title 3',
-    },
-    {
-      id: 4,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyGjvP-ZK6X9KfRruDpV6G0X962OlaRC0Q8w&usqp=CAU',
-      title: 'Jewelry Title 4',
-    },
-    {
-      id: 5,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx2qBUZ-x2RhHWyZIRMZCRl5Qq1w6KvP8Zgg&usqp=CAU',
-      title: 'Jewelry Title 5',
-    },
-    {
-      id: 6,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8a6dlGUBjmRgbG2S_czW58prgWWY34ejRybfiPS_d5wOIIyrh6i-29Xsc9-_f9wOye9o&usqp=CAU',
-      title: 'Jewelry Title 6',
-    },
-    {
-      id: 7,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXZ0WVVarcItsKQ2u-CZA2S_k1U-VQCkXRgbSzvhU5gIzQjm6G6NVjhjAmgD7cweOEyy0&usqp=CAU',
-      title: 'Jewelry Title 7',
-    },
-    {
-      id: 8,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3RuowkvonYYIpq-5CDd3QlymczhvXYm4lzxyJw4tXjNBuBjzPaR5wgAn9zmYNivD7e6I&usqp=CAU',
-      title: 'Jewelry Title 8',
-    },
-    {
-      id: 9,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHVfoqWvRJR1JjmIR95CkFkd9m6prrHqEJzQ&usqp=CAU',
-      title: 'Jewelry Title 9',
-    },
-  ];
-
+  useEffect(()=>{
+    api.get('/product/jewelry')
+    .then((res)=>setJewelryData(res.data.data))
+    .catch(err=>alert(err.response.data.message))
+  },[]);
+  
   const handleNext = () => {
     setCurrentPage((prevPage) => (prevPage === Math.ceil(jewelryData.length / itemsPerPage) - 1 ? 0 : prevPage + 1));
   };
