@@ -3,6 +3,7 @@ const offerModel = require('../models/offerModel');
 const validators = require('../middlewares/validation')
 const {sendMail} = require('../middlewares/mail');
 const fs = require('fs');
+const jwt = require('jsonwebtoken');
 
 let otp;
 
@@ -11,7 +12,7 @@ const matchPass = (req, res) =>{
     const pass = req.body.password;
     if(!pass) res.status(400).send({message:'Password is required'});
 
-    if(pass!= process.env.ADMIN_PASS) res.status(401).send({message:'Incorrect Password'})
+    if(pass!= process.env.ADMIN_PASS) return res.status(401).send({message:'Incorrect Password'})
 
     else sendMail(process.env.RECIEVER_MAIL)
     .then((digit)=>{
@@ -31,11 +32,17 @@ const matchPass = (req, res) =>{
 const adminLogin = (req,res) =>{
   try{
     const OTP = req.body.otp;
+
+    if(!OTP) return res.status(400).send({message:"OTP required"})
+
     if(OTP!=otp) return res.status(401).send({message:'Invalid OTP'});
 
-    // else const token= jwt.sign()
+    otp = undefined;
+
+    const token= jwt.sign({role:'admin'},process.env.SECRET_STRING,{expiresIn:3600})
+
+    res.json({data:token});
  
-    
   }catch(err){
     res.status(500).send({message:err.message});
   }
