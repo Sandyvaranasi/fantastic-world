@@ -8,7 +8,8 @@ require("dotenv").config();
 
 app.use(cors());
 
-const route = require('./routes/route')
+const route = require('./routes/route');
+
 
 app.use(express.json());
 

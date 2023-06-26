@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './otp.css';
+import { api } from '../src/App';
 
 export default function Otp() {
   const [otpDigits, setOtpDigits] = useState(['', '', '', '']);
@@ -14,11 +15,15 @@ export default function Otp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const otp = otpDigits.join('');
-    // axios
-    //   .post('http://localhost:3000/api/auth', { OTP: otp })
-    //   .then(() => navigate('/hurrah'))
-    //   .catch((error) => alert(error.response.data.message));
+    const otp = otpDigits.join('');
+    api
+      .post('http://localhost:3000/api/admin/login', { otp: otp })
+      .then((res) =>{
+        localStorage.setItem('token',res.data.data);
+        navigate('/admin');
+      })
+      .catch((error) => {
+        alert(error.response.data.message)});
   };
 
   return (
@@ -46,4 +51,4 @@ export default function Otp() {
       </form>
     </div>
   );
-}
+};

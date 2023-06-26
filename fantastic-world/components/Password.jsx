@@ -15,8 +15,7 @@ export default function Password() {
     e.preventDefault();
     api
       .post('/admin/pass', { password: password })
-      .then((res) => {
-        localStorage.setItem('token', res.data.data);
+      .then(() => {
         navigate('/otp');
       })
       .catch((error) => alert(error.response.data.message));
