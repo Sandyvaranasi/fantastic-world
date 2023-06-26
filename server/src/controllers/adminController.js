@@ -10,7 +10,7 @@ let otp;
 const matchPass = (req, res) =>{
   try{
     const pass = req.body.password;
-    if(!pass) res.status(400).send({message:'Password is required'});
+    if(!pass) return res.status(400).send({message:'Password is required'});
 
     if(pass!= process.env.ADMIN_PASS) return res.status(401).send({message:'Incorrect Password'})
 

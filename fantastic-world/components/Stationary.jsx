@@ -48,8 +48,6 @@ export default function Stationary() {
       <div className="stationary-slider">
         <div className="stationary-cards">
           {visibleItems.map((item) => {
-            console.log(item.image);
-
             const base64String = btoa(
               String.fromCharCode(...new Uint8Array(item.image.data))
             );
