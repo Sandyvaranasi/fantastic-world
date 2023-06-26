@@ -35,9 +35,14 @@ export default function Navbar() {
         <li className="navbar-item">
           <Link to="/gift" className="navbar-link">Gift</Link>
         </li>
-        <li className="navbar-item">
+        {!localStorage.getItem('token')?<li className="navbar-item">
           <Link to="/password" className="navbar-link">Admin Pannel</Link>
-        </li>
+        </li>:<li className="navbar-item">
+          <Link to="/admin" className="navbar-link">Admin</Link>
+        </li>}
+        {localStorage.getItem('token')&&<li className="navbar-item">
+          <div className="navbar-link" onClick={()=>localStorage.clear()}>Log Out</div>
+        </li>}
       </ul>
     </nav>
   );
