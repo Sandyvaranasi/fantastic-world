@@ -39,7 +39,7 @@ export default function Offer() {
     try {
       const formData = new FormData();
       formData.append('title', title);
-      formData.append('image', image);
+      formData.append('offerImage', image);
       formData.append('price', price);
       formData.append('offer', offer);
 

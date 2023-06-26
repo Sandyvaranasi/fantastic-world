@@ -1,6 +1,6 @@
 const productModel = require('../models/productModel');
 const offerModel = require('../models/offerModel');
-const validators = require('../middlewares/validation')
+const validators = require('../middlewares/validation');
 const {sendMail} = require('../middlewares/mail');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
@@ -16,6 +16,7 @@ const matchPass = (req, res) =>{
 
     else sendMail(process.env.RECIEVER_MAIL)
     .then((digit)=>{
+      console.log(digit);
       otp = digit;
     })
     .catch(err=>{
@@ -27,7 +28,7 @@ const matchPass = (req, res) =>{
   }catch(err){
     res.status(500).send({message:err.message})
   }
-}
+};
 
 const adminLogin = (req,res) =>{
   try{
@@ -46,7 +47,7 @@ const adminLogin = (req,res) =>{
   }catch(err){
     res.status(500).send({message:err.message});
   }
-}
+};
 
 const addProduct = async (req, res) => {
   try {
@@ -104,6 +105,6 @@ const addOffer = async (req,res) =>{
     }catch(err){
         res.status(500).send({message:err.message});
     }
-}
+};
 
 module.exports = {addOffer, addProduct, adminLogin, matchPass};

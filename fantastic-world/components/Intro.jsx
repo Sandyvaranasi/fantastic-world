@@ -58,7 +58,7 @@ export default function Intro() {
           <animated.img
             className="product-image"
             src= {`data:image/png;base64,${base64String}`}
-            alt="Kada image"
+            alt="Offer Image"
           />
           <animated.div className="details-container">
             <animated.div className="price-container">

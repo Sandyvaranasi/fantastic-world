@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './admin.css';
 
 export default function Admin() {
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(!localStorage.getItem('token')){
+        alert('Login first')
+        navigate('/password')
+    }
+  },[]);
 
   return (
     <div className="admin-container">
