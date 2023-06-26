@@ -36,11 +36,11 @@ export default function Bangles() {
     <div className="bangle-container">
       <h1 className="bangle-heading">Bangles</h1>
       <p className="bangle-description">
-        A paragraph is defined as "a group of sentences or a single sentence
-        that forms a unit". Length and appearance do not determine whether a
-        section in a paper is a paragraph. For instance, in some styles of
-        writing, particularly journalistic styles, a paragraph can be just one
-        sentence long.
+        "Enhance your style with our exquisite bangles. Crafted with precision
+        and passion, our collection offers a variety of designs to suit your
+        taste. From traditional to modern, our bangles add a touch of elegance
+        to any outfit. Discover the perfect accessory to elevate your look.
+        Visit our shop and indulge in the timeless charm of our bangles."
       </p>
       <div className="bangle-slider">
         <div className="bangle-cards">

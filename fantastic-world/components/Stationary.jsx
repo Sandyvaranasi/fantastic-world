@@ -39,11 +39,15 @@ export default function Stationary() {
     <div className="stationary-container">
       <h1 className="stationary-heading">Stationaries</h1>
       <p className="stationary-description">
-        A paragraph is defined as “a group of sentences or a single sentence
-        that forms a unit”. Length and appearance do not determine whether a
-        section in a paper is a paragraph. For instance, in some styles of
-        writing, particularly journalistic styles, a paragraph can be just one
-        sentence long.
+        "Discover a world of creativity and organization with our wide range of
+        stationery products. From sleek pens and stylish notebooks to vibrant
+        markers and handy organizers, we have everything you need to make work
+        and study a breeze. Elevate your productivity and unleash your
+        imagination with our high-quality stationery essentials. Whether you're
+        a student, professional, or creative enthusiast, our stationery
+        collection will inspire you to express yourself and stay organized in
+        style. Explore our stationery wonderland and ignite your passion for
+        writing, planning, and creating."
       </p>
       <div className="stationary-slider">
         <div className="stationary-cards">
