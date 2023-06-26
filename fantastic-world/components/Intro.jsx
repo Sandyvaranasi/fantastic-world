@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSpring, animated } from "react-spring";
 import "./intro.css";
 import "./homepage.css";
 import { useNavigate } from "react-router-dom";
@@ -27,27 +26,10 @@ export default function Intro() {
     );
   }
 
-  const introAnimation = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 1000 },
-  });
-
-  const aboutAnimation = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    delay: 500,
-    config: { duration: 1000 },
-  });
-
   return (
     <div className="intro-container">
-      <animated.h1 style={introAnimation}>
-        Welcome to Fantastic World
-      </animated.h1>
-      <animated.p style={introAnimation}>
-        Discover exquisite material sold with passion and precision.
-      </animated.p>
+      <h1>Welcome to Fantastic World</h1>
+      <p>Discover exquisite material sold with passion and precision.</p>
       <div className="intro-actions">
         <button className="btn" onClick={() => navigate("/category")}>
           Explore Collections
@@ -56,43 +38,35 @@ export default function Intro() {
           Contact Us
         </a>
       </div>
-      <animated.h2 className="special-offers">
-        Today's Special Offer !!!
-      </animated.h2>
-      <animated.div className="product-details">
-        <animated.h3 className="product-title">
-          {offerDetails.title}
-        </animated.h3>
-        <animated.div className="product-info">
-          <animated.img
+      <h2 className="special-offers">Today's Special Offer !!!</h2>
+      <div className="product-details">
+        <h3 className="product-title">{offerDetails.title}</h3>
+        <div className="product-info">
+          <img
             className="product-image"
             src={`data:image/png;base64,${base64String}`}
             alt="Offer Image"
           />
-          <animated.div className="details-container">
-            <animated.div className="price-container">
-              <animated.p className="price">
-                Daily price: {offerDetails.price}
-              </animated.p>
-              <animated.h4 className="offer-price">
+          <div className="details-container">
+            <div className="price-container">
+              <p className="price">Daily price: {offerDetails.price}</p>
+              <h4 className="offer-price">
                 Today's Offer Price: {offerDetails.offer}
-              </animated.h4>
-              <animated.h5 className="hurry-up">
-                Hurry Up!!! Limited Time Offer
-              </animated.h5>
-            </animated.div>
-          </animated.div>
-        </animated.div>
-      </animated.div>
-      <animated.div className="about-section" style={aboutAnimation}>
-        <animated.h2>About Fantastic World</animated.h2>
-        <animated.p>
+              </h4>
+              <h5 className="hurry-up">Hurry Up!!! Limited Time Offer</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="about-section">
+        <h2>About Fantastic World</h2>
+        <p>
           Fantastic World is a retail establishment that offers a wide range of
           products to cater to various customer needs. It aims to provide a
           convenient one-stop shopping experience by combining different product
           categories under one roof.
-        </animated.p>
-      </animated.div>
+        </p>
+      </div>
     </div>
   );
 }
