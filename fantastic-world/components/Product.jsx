@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './product.css';
-import { api } from '../src/App';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import "./product.css";
+import { api } from "../src/App";
+import { useNavigate } from "react-router-dom";
 
 export default function Product() {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
-  const [category, setCategory] = useState(''); // State for selection tag
-  const navigate = useNavigate('');
+  const [category, setCategory] = useState(""); // State for selection tag
+  const navigate = useNavigate("");
 
-  useEffect(()=>{
-    if(!localStorage.getItem('token')){
-        alert('Login first')
-        navigate('/password')
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      alert("Login first");
+      navigate("/password");
     }
-  },[])
+  }, [localStorage.getItem('token')]);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -28,32 +28,39 @@ export default function Product() {
     setCategory(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     e.preventDefault();
-
+    
     // Create FormData object to send the data
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('productImage', image);
+    formData.append("title", title);
+    formData.append("productImage", image);
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       },
     };
 
     // Make a POST request to the backend using Axios
-    api.post(`/product/${category}`, formData,config)
+    api
+      .post(`/product/${category}`, formData, config)
       .then(() => {
-        alert('Product added successfully');
-        setTitle('');
+        alert("Product added successfully");
+        setTitle("");
         setImage(null);
-        setCategory('');
-        
+        setCategory("");
       })
       .catch((error) => {
+        if (
+          error.response.data.message == "jwt expired" ||
+          error.response.data.message == "jwt malformed" ||
+          error.response.data.message == "invalid signature"
+        ) {
+          localStorage.clear();
+        }
         alert(error.response.data.message);
       });
   };

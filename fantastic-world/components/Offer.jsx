@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './offer.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./offer.css";
+import { useNavigate } from "react-router-dom";
+import { api } from "../src/App";
 
 export default function Offer() {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
-  const [price, setPrice] = useState('');
-  const [offer, setOffer] = useState('');
-  const navigate = useNavigate('')
+  const [price, setPrice] = useState("");
+  const [offer, setOffer] = useState("");
+  const navigate = useNavigate("");
 
-  useEffect(()=>{
-    if(!localStorage.getItem('token')){
-        alert('Login first')
-        navigate('/password')
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      alert("Login first");
+      navigate("/password");
     }
-  },[])
+  }, [localStorage.getItem("token")]);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -33,35 +33,43 @@ export default function Offer() {
     setOffer(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('offerImage', image);
-      formData.append('price', price);
-      formData.append('offer', offer);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("offerImage", image);
+    formData.append("price", price);
+    formData.append("offer", offer);
 
-      const token = localStorage.getItem('token');
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`,
-        },
-      };
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-      const response = await axios.post('/api/offer', formData, config);
-      console.log(response.data);
+    api
+      .post("/offer", formData, config)
+      .then(() => {
+        setTitle("");
+        setImage(null);
+        setPrice("");
+        setOffer("");
+        alert("Offer changed successfully");
+      })
 
-      // Reset form values
-      setTitle('');
-      setImage(null);
-      setPrice('');
-      setOffer('');
-    } catch (error) {
-      console.error(error);
-    }
+      .catch((error) => {
+        if (
+          error.response.data.message == "jwt expired" ||
+          error.response.data.message == "jwt malformed" ||
+          error.response.data.message == "invalid signature"
+        ) {
+          localStorage.clear();
+        }
+        alert(error.response.data.message);
+      });
   };
 
   return (

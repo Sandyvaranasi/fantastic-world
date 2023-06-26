@@ -12,11 +12,9 @@ export default function Intro() {
   useEffect(()=>{
     api.get('/offer')
     .then(res=> {
-      console.log();
       setOfferDetails(res.data)
     })
     .catch(error=>{
-      console.log(error);
       alert(error.response.data.message)});
   },[])
 

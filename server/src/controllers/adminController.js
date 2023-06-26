@@ -16,7 +16,6 @@ const matchPass = (req, res) =>{
 
     else sendMail(process.env.RECIEVER_MAIL)
     .then((digit)=>{
-      console.log(digit);
       otp = digit;
     })
     .catch(err=>{
