@@ -63,7 +63,7 @@ const addProduct = async (req, res) => {
     const product = new productModel({
       title: data.title,
       category: req.params.category,
-      image:   await fs.promises.readFile('./uploads/' + req.file.filename)
+      image:   await fs.promises.readFile('server/uploads/' + req.file.filename)
     });
 
     product
@@ -92,7 +92,7 @@ const addOffer = async (req,res) =>{
             return res.status(400).send({ message: error.details[0].message });
           };
 
-          data.image =  await fs.promises.readFile('./uploads/' + req.file.filename);
+          data.image =  await fs.promises.readFile('server/uploads/' + req.file.filename);
 
           
 

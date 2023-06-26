@@ -2,7 +2,7 @@ const multer = require('multer');
 
 const storageEngine = multer.diskStorage({
     destination : (req,file,callBack)=>{
-        callBack(null,'./uploads')
+        callBack(null,'server/uploads')
         
     },
     filename: (req,file,callBack)=>{
