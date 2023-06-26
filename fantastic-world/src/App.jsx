@@ -19,8 +19,7 @@ import Product from '../components/Product';
 import Offer from '../components/Offer';
 
 export const api = axios.create({
-  baseURL : 'http://localhost:3000/api'
-  // baseURL: import.meta.env.VITE_BASE_URL,
+   baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 function App() {
