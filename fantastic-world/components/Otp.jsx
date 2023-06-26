@@ -17,9 +17,10 @@ export default function Otp() {
     e.preventDefault();
     const otp = otpDigits.join('');
     api
-      .post('http://localhost:3000/api/admin/login', { otp: otp })
+      .post('/admin/login', { otp: otp })
       .then((res) =>{
         localStorage.setItem('token',res.data.data);
+        alert('Login successfull!')
         navigate('/admin');
       })
       .catch((error) => {
