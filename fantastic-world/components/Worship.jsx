@@ -36,11 +36,15 @@ export default function Worship() {
     <div className="worship-container">
       <h1 className="worship-heading">Pooja Samagri</h1>
       <p className="worship-description">
-        A paragraph is defined as “a group of sentences or a single sentence
-        that forms a unit”. Length and appearance do not determine whether a
-        section in a paper is a paragraph. For instance, in some styles of
-        writing, particularly journalistic styles, a paragraph can be just one
-        sentence long.
+        "Experience divine bliss and spiritual harmony with our exquisite
+        collection of pooja samagri. From sacred incense and fragrant oils to
+        beautiful diyas and traditional pooja accessories, we offer a wide range
+        of products to enhance your spiritual rituals. Each item is carefully
+        selected to ensure purity and authenticity, allowing you to create a
+        sacred ambiance for your prayers and ceremonies. Embrace the sacred
+        traditions and invoke blessings with our premium pooja samagri. Let the
+        divine energy flow through your home as you embark on a journey of
+        devotion and enlightenment."
       </p>
       <div className="worship-slider">
         <div className="worship-cards">

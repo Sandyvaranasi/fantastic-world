@@ -36,11 +36,12 @@ export default function Gift() {
     <div className="gift-container">
       <h1 className="gift-heading">Gift Items</h1>
       <p className="gift-description">
-        A paragraph is defined as "a group of sentences or a single sentence
-        that forms a unit". Length and appearance do not determine whether a
-        section in a paper is a paragraph. For instance, in some styles of
-        writing, particularly journalistic styles, a paragraph can be just one
-        sentence long.
+        "Find the perfect gift for every occasion at our shop. Our gift items
+        are carefully curated to bring joy and delight to your loved ones. From
+        unique home decor pieces to personalized treasures, we have something
+        for everyone. Celebrate special moments with our thoughtfully selected
+        gifts that convey your love and appreciation. Make memories
+        unforgettable with our exceptional gift collection."
       </p>
       <div className="gift-slider">
         <div className="gift-cards">

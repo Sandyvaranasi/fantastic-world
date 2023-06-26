@@ -36,11 +36,12 @@ export default function Jewelry() {
     <div className="jewelry-container">
       <h1 className="jewelry-heading">Jewelries</h1>
       <p className="jewelry-description">
-        A paragraph is defined as "a group of sentences or a single sentence
-        that forms a unit". Length and appearance do not determine whether a
-        section in a paper is a paragraph. For instance, in some styles of
-        writing, particularly journalistic styles, a paragraph can be just one
-        sentence long.
+        Jewelry has been historically used as a form of currency, wealth
+        storage, and status symbol. Overall, jewelry represents a blend of
+        artistry, craftsmanship, and personal expression. It holds cultural,
+        emotional, and aesthetic significance, making it a cherished and
+        enduring form of adornment throughout history and across different
+        societies.
       </p>
       <div className="jewelry-slider">
         <div className="jewelry-cards">

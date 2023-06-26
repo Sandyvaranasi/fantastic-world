@@ -36,11 +36,16 @@ export default function Other() {
     <div className="other-container">
       <h1 className="other-heading">Other Items</h1>
       <p className="other-description">
-        A paragraph is defined as “a group of sentences or a single sentence
-        that forms a unit”. Length and appearance do not determine whether a
-        section in a paper is a paragraph. For instance, in some styles of
-        writing, particularly journalistic styles, a paragraph can be just one
-        sentence long.
+        "Transform your house into a home with our diverse range of household
+        items. Discover practical solutions and stylish decor pieces that
+        elevate your living space. From kitchen essentials to bathroom
+        accessories, organization solutions to home decor accents, we have
+        everything you need to create a functional and inviting environment. Our
+        high-quality products are designed to simplify your daily routines and
+        enhance the aesthetics of your home. Whether you're looking for sleek
+        and modern designs or timeless classics, we offer a wide selection to
+        suit your style and preferences. Make your house a reflection of your
+        personality and enjoy the comforts of a well-equipped home."
       </p>
       <div className="other-slider">
         <div className="other-cards">
