@@ -1,0 +1,48 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .admin-welcome {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .admin-welcome a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .admin-welcome a:hover {
+    text-decoration: underline;
+  }
+  
+  .admin-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .admin-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-button:hover {
+    background-color: #0056b3;
+  }
+  

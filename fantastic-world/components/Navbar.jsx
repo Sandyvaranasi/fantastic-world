@@ -35,6 +35,9 @@ export default function Navbar() {
         <li className="navbar-item">
           <Link to="/gift" className="navbar-link">Gift</Link>
         </li>
+        <li className="navbar-item">
+          <Link to="/password" className="navbar-link">Admin Pannel</Link>
+        </li>
       </ul>
     </nav>
   );

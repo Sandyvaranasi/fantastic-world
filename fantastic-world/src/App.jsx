@@ -12,6 +12,11 @@ import Contact from '../components/Contact';
 import Category from '../components/Category';
 import Other from '../components/Other';
 import axios from 'axios';
+import Otp from '../components/Otp';
+import Password from '../components/Password';
+import Admin from '../components/Admin';
+import Product from '../components/Product';
+import Offer from '../components/Offer';
 
 export const api = axios.create({
   baseURL : 'http://localhost:3000/api'
@@ -32,6 +37,11 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/other" element={<Other/>} />
         <Route path="/category" element={<Category/>} />
+        <Route path='/password' element={<Password/>}/>
+        <Route path='/otp' element={<Otp/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/product' element={<Product/>}/>
+        <Route path='/offer' element={<Offer/>}/>
       </Routes>
     </Router>
   );

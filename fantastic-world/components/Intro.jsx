@@ -12,10 +12,22 @@ export default function Intro() {
   useEffect(()=>{
     api.get('/offer')
     .then(res=> {
+      console.log();
       setOfferDetails(res.data)
     })
-    .catch(error=>alert(error.response.data.message));
+    .catch(error=>{
+      console.log(error);
+      alert(error.response.data.message)});
   },[])
+
+  
+  let base64String;
+  if(offerDetails.image){
+     base64String = btoa(
+      String.fromCharCode(...new Uint8Array(offerDetails.image.data))
+    )
+  }
+
 
 
   const introAnimation = useSpring({
@@ -30,10 +42,6 @@ export default function Intro() {
     delay: 500,
     config: { duration: 1000 },
   });
-
-  const base64String = btoa(
-    String.fromCharCode(...new Uint8Array(offerDetails.image.data))
-  );
 
   return (
     <div className="intro-container">
