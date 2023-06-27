@@ -60,6 +60,9 @@ const addProduct = async (req, res) => {
       return res.status(400).send({ message: error.details[0].message });
     }
 
+    let name = await productModel.findOne({title:data.title,category:req.params.category})
+    if(name) return res.status(400).send({message:"Title already taken"});
+
     const product = new productModel({
       title: data.title,
       category: req.params.category,
