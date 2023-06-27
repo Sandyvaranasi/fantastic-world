@@ -9,6 +9,8 @@ export default function Product() {
   const [category, setCategory] = useState(""); // State for selection tag
   const navigate = useNavigate("");
 
+
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       alert("Login first");
@@ -34,7 +36,7 @@ export default function Product() {
     setCategory(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     // Create FormData object to send the data
