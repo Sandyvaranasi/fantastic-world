@@ -12,7 +12,7 @@ export default function Intro() {
     api
       .get("/offer")
       .then((res) => {
-        setOfferDetails(res.data);
+        setOfferDetails(res.data.data);
       })
       .catch((error) => {
         alert(error.response.data.message);

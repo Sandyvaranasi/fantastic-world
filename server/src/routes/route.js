@@ -12,10 +12,10 @@ router.get('/test',(req,res)=>res.send('ok'));
  router.post('/admin/login', adminLogin);
  router.post('/admin/pass', matchPass);
 
- router.post('/product/:category', authentication, uploadImage.single('productImage'), addProduct);
+ router.post('/product/:category', authentication,  uploadImage.single('productImage'), addProduct);//auth
  router.get('/product/:category', getProducts);
 
- router.post('/offer', authentication, uploadImage.single('offerImage') , addOffer);
+ router.post('/offer', authentication,  uploadImage.single('offerImage') , addOffer);//auth
  router.get('/offer', getOffer);
 
 
