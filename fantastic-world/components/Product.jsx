@@ -21,7 +21,13 @@ export default function Product() {
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file && file.size <= 100 * 1024) {
+      setImage(file);
+    } else {
+      alert("Image size should be less than or equal to 100KB.");
+      setImage(null)
+    }
   };
 
   const handleCategoryChange = (e) => {
