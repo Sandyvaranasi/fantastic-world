@@ -62,11 +62,12 @@ const addProduct = async (req, res) => {
 
     let name = await productModel.findOne({title:data.title,category:req.params.category})
     if(name) return res.status(400).send({message:"Title already taken"});
+    
 
     const product = new productModel({
       title: data.title,
       category: req.params.category,
-      image:   await fs.promises.readFile('server/uploads/' + req.file.filename)
+      image: await fs.promises.readFile('server/uploads/' + req.file.filename)
     });
 
     product
