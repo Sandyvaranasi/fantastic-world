@@ -46,9 +46,15 @@ export default function Jewelry() {
       <div className="jewelry-slider">
         <div className="jewelry-cards">
           {visibleItems.map((item) => {
-            const base64String = btoa(
-              String.fromCharCode(...new Uint8Array(item.image.data))
-            );
+            let base64String;
+            if (localStorage.getItem(item.title)) {
+              base64String = localStorage.getItem(item.title);
+            } else {
+              base64String = btoa(
+                String.fromCharCode(...new Uint8Array(item.image.data))
+              );
+              localStorage.setItem(item.title, base64String);
+            }
 
             return (
               <div className="jewelry-card" key={item.id}>

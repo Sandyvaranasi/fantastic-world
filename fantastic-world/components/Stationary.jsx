@@ -52,9 +52,15 @@ export default function Stationary() {
       <div className="stationary-slider">
         <div className="stationary-cards">
           {visibleItems.map((item) => {
-            const base64String = btoa(
-              String.fromCharCode(...new Uint8Array(item.image.data))
-            );
+            let base64String;
+            if (localStorage.getItem(item.title)) {
+              base64String = localStorage.getItem(item.title);
+            } else {
+              base64String = btoa(
+                String.fromCharCode(...new Uint8Array(item.image.data))
+              );
+              localStorage.setItem(item.title, base64String);
+            }
 
             return (
               <div className="stationary-card" key={item.id}>

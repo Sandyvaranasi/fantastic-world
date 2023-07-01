@@ -21,9 +21,14 @@ export default function Intro() {
 
   let base64String;
   if (offerDetails.image) {
-    base64String = btoa(
-      String.fromCharCode(...new Uint8Array(offerDetails.image.data))
-    );
+            if(localStorage.getItem(offerDetails.title)){
+              base64String = localStorage.getItem(offerDetails.title)
+            }else{
+              base64String = btoa(
+                String.fromCharCode(...new Uint8Array(offerDetails.image.data))
+              );
+              localStorage.setItem(offerDetails.title,base64String)
+            }
   }
 
   return (

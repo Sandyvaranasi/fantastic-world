@@ -50,9 +50,15 @@ export default function Other() {
       <div className="other-slider">
         <div className="other-cards">
           {visibleItems.map((item) => {
-            const base64String = btoa(
-              String.fromCharCode(...new Uint8Array(item.image.data))
-            );
+            let base64String;
+            if (localStorage.getItem(item.title)) {
+              base64String = localStorage.getItem(item.title);
+            } else {
+              base64String = btoa(
+                String.fromCharCode(...new Uint8Array(item.image.data))
+              );
+              localStorage.setItem(item.title, base64String);
+            }
 
             return (
               <div className="other-card" key={item.id}>
